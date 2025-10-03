@@ -1,4 +1,4 @@
-##IA Ninja — Curso de IA + Automação com n8n
+# IA Ninja — Curso de IA + Automação com n8n
 
 > "Domine Inteligência Artificial e torne-se um IA Ninja"  
 > Crie fluxos inteligentes, automatize processos e forme um verdadeiro **exército de agentes** com **n8n + IA**.
