@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IA Ninja – Curso de IA por Davi Silva</title>
+  <meta name="description" content="Domine Inteligência Artificial do zero ao avançado com o curso IA Ninja do Davi Silva." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0f1a; --card:#11182a; --muted:#9fb0c2; --text:#e7edf5; --primary:#6cf0c2; --accent:#7aa2ff; --warning:#ffd166;
+      --maxw:1100px; --radius:14px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:linear-gradient(180deg,#0b0f1a, #0e1424 35%, #0b0f1a);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;scroll-behavior:smooth}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+    .nav{position:sticky;top:0;backdrop-filter:saturate(150%) blur(8px);background:rgba(11,15,26,.6);border-bottom:1px solid rgba(255,255,255,.06);z-index:50}
+    .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+    .brand{display:flex;gap:10px;align-items:center;font-weight:800;letter-spacing:.3px}
+    .brand .logo{width:34px;height:34px;border-radius:10px;background:conic-gradient(from 210deg,var(--primary),var(--accent));box-shadow:0 0 30px rgba(122,162,255,.25)}
+    .nav a:hover{opacity:.85}
+    .menu{display:flex;gap:18px;font-weight:600;color:var(--muted)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 18px;border-radius:12px;font-weight:700;border:1px solid transparent;transition:.2s ease;cursor:pointer}
+    .btn-primary{background:linear-gradient(135deg,var(--primary),#44d6ff);color:#05221a;box-shadow:0 10px 24px rgba(108,240,194,.25)}
+    .btn-primary:hover{transform:translateY(-1px);box-shadow:0 14px 28px rgba(108,240,194,.32)}
+    .btn-ghost{border-color:rgba(255,255,255,.15);color:var(--text);background:rgba(255,255,255,.02)}
+    .hero{padding:70px 0 40px}
+    .tag{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;background:rgba(122,162,255,.12);border:1px solid rgba(122,162,255,.25);color:#cfe0ff;font-weight:700;font-size:12px;letter-spacing:.4px;text-transform:uppercase}
+    h1{font-size:42px;line-height:1.1;margin:18px 0 14px}
+    .lead{color:var(--muted);font-size:18px;max-width:760px}
+    .cta{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
+    .grid{display:grid;gap:18px}
+    .kpis{grid-template-columns:repeat(3,1fr);margin-top:26px}
+    .kpis .card{background:linear-gradient(180deg,#0f162a, #0a1123);border:1px solid rgba(255,255,255,.06);padding:18px;border-radius:16px}
+    .kpis .num{font-size:28px;font-weight:800;background:linear-gradient(135deg,#fff,var(--primary));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .section{padding:48px 0}
+    .card{background:linear-gradient(180deg,#0f162a, #0a1123);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:22px}
+    .modules{grid-template-columns:repeat(3,1fr)}
+    .modules h3{margin:6px 0 10px}
+    .chip{display:inline-block;background:rgba(108,240,194,.12);border:1px solid rgba(108,240,194,.35);color:var(--primary);padding:6px 10px;border-radius:999px;font-size:12px;font-weight:700}
+    .list{margin:8px 0 0;padding-left:18px;color:var(--muted)}
+    .benefits{grid-template-columns:repeat(3,1fr)}
+    .benefits .ico{font-size:22px}
+    .testi{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .faq{display:grid;gap:12px}
+    .footer{padding:26px 0;color:var(--muted);border-top:1px solid rgba(255,255,255,.06)}
+    .highlight{background:linear-gradient(135deg,var(--warning),#ff8f6b);-webkit-background-clip:text;background-clip:text;color:transparent}
+    @media (max-width:960px){
+      .modules,.benefits,.testi,.kpis{grid-template-columns:1fr}
+      h1{font-size:34px}
+    }
+
+    /* Chatbot no FAQ */
+    .container-chat {
+      max-width: 960px;
+      margin: 24px auto;
+      padding: 32px;
+      background-color: #fdf7f7;
+      border-radius: 32px;
+    }
+    .carla-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #0d1a2f;
+      color: #fff;
+      padding: 16px 24px;
+      border-radius: 32px;
+      font-size: 20px;
+      margin-bottom: 32px;
+      box-shadow: 0 0 20px rgba(0, 245, 212, 0.3);
+    }
+    .carla-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .carla-title img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #00f5d4;
+    }
+    .powered {
+      color: #00f5d4;
+      font-style: italic;
+      font-size: 14px;
+      text-shadow: 0 0 4px #00f5d4;
+    }
+    .messages { display: flex; flex-direction: column; gap: 24px; max-height:400px; overflow-y:auto; }
+    .msg, .msgUsr { max-width:75%; padding:20px 24px; border-radius:24px; font-size:16px; line-height:1.6; box-shadow:0 6px 18px rgba(0,0,0,0.3);}
+    .msg { align-self:flex-start; background-color:white; color:#222; }
+    .msgUsr { align-self:flex-end; background-color:#0d1a2f; color:white; font-weight:bold; }
+    .typing { font-style:italic; background-color:white; color:#555; max-width:75%; padding:16px; border-radius:20px; box-shadow:0 6px 18px rgba(0,0,0,0.3); align-self:flex-start; display:flex; gap:4px; }
+    .typing .dot { animation: blink 1.5s infinite; }
+    .typing .dot:nth-child(2){ animation-delay:0.2s; }
+    .typing .dot:nth-child(3){ animation-delay:0.4s; }
+    @keyframes blink { 0%{opacity:0.2;} 20%{opacity:1;} 100%{opacity:0.2;} }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="wrap">
+      <div class="brand">
+        <div class="logo"></div>
+        <div>IA Ninja</div>
+      </div>
+      <div class="menu">
+        <a href="#sobre">Sobre</a>
+        <a href="#conteudo">Conteúdo</a>
+        <a href="#beneficios">Benefícios</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <a class="btn btn-ghost" href="https://hotmart.com/pt-br/marketplace/produtos/n8n-na-pratica-do-zero-a-criacao-de-um-exercito-de-agentes/S101896205J">Inscreva-se</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <span class="tag">Curso de IA por Davi Silva</span>
+      <h1>Domine Inteligência Artificial e torne-se um IA Ninja</span></h1>
+      <p class="lead">Aprenda a usar IA de forma prática e estratégica para criar conteúdo, automatizar tarefas e acelerar sua carreira. Do zero ao avançado com projetos reais.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://hotmart.com/pt-br/marketplace/produtos/n8n-na-pratica-do-zero-a-criacao-de-um-exercito-de-agentes/S101896205J">Quero ser Ninja em IA</a>
+        <a class="btn btn-ghost" href="#conteudo">Ver conteúdo do curso</a>
+      </div>
+      <div class="grid kpis">
+        <div class="card">
+          <div class="tag">+40 aulas</div>
+          <div class="tag">Passo a passo em vídeo</div>
+        </div>
+        <div class="card">
+          <div class="tag">3 projetos</div>
+          <div class="tag">Portfólio prático</div>
+        </div>
+        <div class="card">
+          <div class="tag">Suporte</div>
+          <div class="tag">Comunidade exclusiva</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="sobre" class="section">
+    <div class="wrap grid" style="grid-template-columns:1.2fr .8fr;gap:18px">
+      <div class="card">
+        <h2>Sobre o curso</h2>
+        <p class="lead">O IA Ninja foi criado por <strong>Davi Silva</strong> para transformar iniciantes em profissionais capazes de aplicar IA no dia a dia: negócios, marketing, programação e produtividade.</p>
+        <ul class="list">
+          <li>Metodologia prática focada em resultados</li>
+          <li>Sem enrolação: fundamentos + ferramentas atuais</li>
+          <li>Aulas curtas, materiais e prompts prontos</li>
+        </ul>
+        <div class="cta" style="margin-top:14px">
+          <a class="btn btn-primary" href="https://hotmart.com/pt-br/marketplace/produtos/n8n-na-pratica-do-zero-a-criacao-de-um-exercito-de-agentes/S101896205J">Garantir minha vaga</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Para quem é?</h3>
+        <ul class="list">
+          <li>Empreendedores que querem vender mais com IA</li>
+          <li>Profissionais que buscam produtividade x3</li>
+          <li>Criadores que desejam escalar conteúdo</li>
+          <li>Dev/No-Code que querem automatizar processos</li>
+        </ul>
+        <div style="margin-top:12px"><span class="chip">Nível: Iniciante ao Avançado</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="conteudo" class="section">
+    <div class="wrap">
+      <h2>Conteúdo do IA Ninja</h2>
+      <div class="grid modules">
+        <div class="card">
+          <div class="chip">Módulo 1</div>
+          <h3>
+Introdução - Saia à frente de 99% da populaçãoA</h3>
+          <ul class="list">
+            <li>Aqui é o início de tudo</li>
+            <li>Introdução ao n8n</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="chip">Módulo 2</div>
+          <h3>Fundamentos do n8n - Simplifique automações com n8n e Inteligência Artificial</h3>
+          <ul class="list">
+            <li>Fundamentos do n8n</li>
+            <li>Markdown uma peça importante nessa jornada</li>
+            <li>Manipulação de Dados</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="chip">Módulo 3</div>
+          <h3>
+Primeira Automação na Prática - Aqui é mão na massa</h3>
+          <ul class="list">
+            <li>Faça, replique, venda, escale</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="beneficios" class="section">
+    <div class="wrap">
+      <h2>Benefícios</h2>
+      <div class="grid benefits">
+        <div class="card">
+          <div class="ico">⚡</div>
+          <h3>Produtividade 3x</h3>
+          <p class="muted">Fluxos prontos para acelerar suas tarefas.</p>
+        </div>
+        <div class="card">
+          <div class="ico">🎯</div>
+          <h3>Aplicação Real</h3>
+          <p class="muted">Projetos para portfólio e negócios.</p>
+        </div>
+        <div class="card">
+          <div class="ico">🛠️</div>
+          <h3>Ferramentas Atualizadas</h3>
+          <p class="muted">Você aprende o que o mercado usa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção FAQ substituída pelo chat Pota.AI -->
+  <section id="faq" class="section">
+    <div class="wrap">
+      <h2>Perguntas frequentes</h2>
+
+      <div class="container-chat">
+        <div class="carla-header">
+          <div class="carla-title">
+            <img src="https://images.seeklogo.com/logo-png/46/1/chatgpt-logo-png_seeklogo-465219.png" alt="Potas Logo" />
+            <div>n8n, atendente da Pota.AI</div>
+          </div>
+          <div class="powered">powered by @pelagestao</div>
+        </div>
+
+        <div class="messages" id="chat"></div>
+        <br>
+        <div id="typing-indicator" style="display: none;" class="msg typing">
+          Pota está digitando<span class="dot">.</span><span class="dot">.</span><span class="dot">.</span>
+        </div>
+
+        <div class="input-area">
+          <input id="userInput" type="text" placeholder="Digite sua mensagem...">
+          <button id="send-button" onclick="sendMessage()">Enviar</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="inscricao" class="section">
+    <div class="wrap">
+      <div class="card" style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between">
+        <div>
+          <h2>Inscreva-se no IA Ninja</h2>
+          <p class="muted">Garanta sua vaga e tenha materiais exclusivos.</p>
+          <p class="muted">Contato direto: <a href="tel:+351929078227">+351 929 078 227</a> · <a href="mailto:hiramcostasilva@gmail.com">@Pelagestao</a></p>
+        </div>
+        <div class="cta">
+          <a class="btn btn-primary" href="https://wa.me/351929078227?text=Quero%20me%20inscrever%20no%20IA%20Ninja" target="_blank" rel="noopener">Falar no WhatsApp</a>
+          <a class="btn btn-ghost" href="mailto:hiramcostasilva@gmail.com.com?subject=Quero%20me%20inscrever%20no%20IA%20Ninja">Contato por e-mail</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap" style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between">
+      <div>© <span id="y"></span> IA Ninja • @pelagestao</div>
+      <div><a href="#sobre">Sobre</a> · <a href="#faq">FAQ</a> · <a href="#inscricao">Inscrição</a></div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    const chat = document.getElementById("chat");
+    const input = document.getElementById("userInput");
+    const sendButton = document.getElementById("send-button");
+
+    function appendMessage(type, text){
+      const div = document.createElement("div");
+      div.className = type==="user"?"msgUsr":"msg";
+      div.innerHTML = text;
+      chat.appendChild(div);
+      chat.scrollTop = chat.scrollHeight;
+    }
+
+    async function sendMessage(){
+      const text = input.value.trim();
+      if(!text) return;
+      appendMessage("user", text);
+      input.value = "";
+      try{
+        document.getElementById("typing-indicator").style.display="flex";
+        const response = await fetch('https://pelagestao.app.n8n.cloud/webhook-test/chama-pota',{
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body:JSON.stringify({message:text})
+        });
+        const data = await response.json();
+        document.getElementById("typing-indicator").style.display="none";
+        if(Array.isArray(data) && data.length>0 && data[0].message){
+          appendMessage("bot", data[0].message);
+        } else {
+          appendMessage("bot","Desculpe, não consegui entender a resposta do servidor.");
+        }
+      } catch(err){
+        console.error(err);
+        document.getElementById("typing-indicator").style.display="none";
+        appendMessage("bot","Erro ao enviar mensagem.");
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      input.addEventListener("keydown", e => {
+        if(e.key==="Enter" && !e.shiftKey){
+          e.preventDefault();
+          sendButton.click();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
